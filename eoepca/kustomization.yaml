@@ -1,4 +1,3 @@
 
 resources:
-  - fredbob
-  # - dummy
+  - dummy
