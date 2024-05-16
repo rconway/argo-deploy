@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dummy
+  name: dummy-service
   namespace: argocd
 spec:
   project: default
@@ -10,7 +10,7 @@ spec:
     chart: dummy
     targetRevision: 1.0.2
     helm:
-      values: |
+      valuesObject:
         ingress:
           enabled: true
       # parameters:
