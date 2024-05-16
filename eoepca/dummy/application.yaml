@@ -1,16 +1,25 @@
-project: default
-source:
-  repoURL: 'https://eoepca.github.io/helm-charts'
-  targetRevision: 1.0.2
-  helm:
-    parameters:
-      - name: ingress.enabled
-        value: 'true'
-  chart: dummy
-destination:
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dummy
   namespace: argocd
-  name: in-cluster
-syncPolicy:
-  automated:
-    prune: true
-    selfHeal: true
+spec:
+  project: default
+  source:
+    repoURL: 'https://eoepca.github.io/helm-charts'
+    chart: dummy
+    targetRevision: 1.0.2
+    helm:
+      values: |
+        ingress:
+          enabled: true
+      # parameters:
+      #   - name: ingress.enabled
+      #     value: 'true'
+  destination:
+    name: in-cluster
+    # namespace: dummy
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
