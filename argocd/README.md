@@ -1,18 +1,29 @@
 # EOEPCA ArgoCD App-of-apps
 
+## Login
+
 Login to argocd...
 
 ```
 argocd login argocd.guide.svc.rconway.uk
+```
+
+Supply credentials of an admin user...
+
+```
   Username: admin
   Password: <admin-password>
 ```
 
+## Project
+
 Create `eoepca` argocd project...
 
 ```
-argocd proj create PROJECT -f https://raw.githubusercontent.com/rconway/argo-deploy/develop/argocd/project.yaml
+argocd proj create eoepca -f https://raw.githubusercontent.com/rconway/argo-deploy/develop/argocd/project.yaml
 ```
+
+## App-of-apps
 
 Create app-of-apps...
 
